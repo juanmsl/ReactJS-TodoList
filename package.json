@@ -16,6 +16,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://juanmsl.github.io/ReactJS-TodoList/",
   "eslintConfig": {
     "extends": "react-app"
   },
