@@ -1,0 +1,45 @@
+{
+	"short_name": "TodoList",
+	"name": "TodoList React App",
+	"icons": [
+		{
+			"src": "assets/logos/applogo/16.png",
+			"type": "image/png",
+			"sizes": "16x16"
+		},
+		{
+			"src": "assets/logos/applogo/logo24.png",
+			"type": "image/png",
+			"sizes": "24x24"
+		},
+		{
+			"src": "assets/logos/applogo/32.png",
+			"type": "image/png",
+			"sizes": "32x32"
+		},
+		{
+			"src": "assets/logos/applogo/64.png",
+			"type": "image/png",
+			"sizes": "64x64"
+		},
+		{
+			"src": "assets/logos/applogo/128.png",
+			"type": "image/png",
+			"sizes": "128x128"
+		},
+		{
+			"src": "assets/logos/applogo/256.png",
+			"type": "image/png",
+			"sizes": "256x256"
+		},
+		{
+			"src": "assets/logos/applogo/512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#2371b1",
+	"background_color": "#ffffff"
+}
