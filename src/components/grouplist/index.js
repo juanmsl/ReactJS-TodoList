@@ -25,6 +25,7 @@ export default function GroupList(props) {
             tasks: []
         };
         setGroups([...groups, group]);
+        setSelectedGroup(groups.length);
         setInputValue("");
     };
 
