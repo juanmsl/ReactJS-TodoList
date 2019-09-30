@@ -41,6 +41,7 @@ export default function TaskList(props) {
 
     return (
         <form onSubmit={handleSubmit}>
+            {selectedGroup !== null ? <h2>{groups[selectedGroup].text}</h2> : null }
             {selectedGroup !== null ? <input type="text" onChange={handleInput} value={inputValue}/> : null }
             <section>{renderTasks()}</section>
         </form>
