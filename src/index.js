@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoListApp from './modules';
+import TodoListApp from './TodoListApp';
 import {
     ServiceWorker
 } from './common';
