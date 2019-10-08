@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TodoListApp from './TodoListApp';
+import TodoListApp from "modules";
 import {
     ServiceWorker
-} from './common';
+} from 'common';
 
 ReactDOM.render(
     <TodoListApp />,

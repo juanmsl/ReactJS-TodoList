@@ -1,0 +1,42 @@
+.task-list {
+  color: white;
+  padding: $padding * 2;
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-gap: $gutter;
+  grid-template-rows: auto 1fr;
+  min-width: 400px;
+
+  .task-list__buttons {
+    display: grid;
+    grid-template-columns: 1fr 140px 140px;
+    grid-gap: $gutter;
+    margin-top: $margin;
+  }
+
+  .task-list__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: start;
+    align-items: start;
+    grid-gap: $gutter;
+    padding: $padding 0;
+    overflow: auto;
+  }
+
+  .task-list__item {
+    padding: $padding;
+    background: white;
+    border-radius: $gutter;
+    border: 1px dotted transparent;
+    color: $gray-color;
+    transition: all 0.3s ease;
+
+    &.done {
+      text-decoration: line-through;
+      background: lighten($active-color, 40);
+      border: 1px solid $active-color;
+    }
+  }
+}

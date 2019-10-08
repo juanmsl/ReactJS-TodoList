@@ -1,0 +1,44 @@
+.input {
+  padding: $padding;
+  border: 0;
+  border-bottom: 1px solid;
+  outline: 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  background: transparent;
+  color: inherit;
+  opacity: 0.5;
+
+  &:hover, &:focus {
+    opacity: 1;
+  }
+}
+
+.button {
+  padding: $padding;
+  border: 1px solid;
+  color: $active-color;
+  transition: all 0.3s ease;
+  outline: 0;
+  cursor: pointer;
+  background: lighten($active-color, 50);
+
+  &.disabled {
+    color: $gray-light-color;
+    cursor: not-allowed;
+    background: transparent;
+  }
+
+  &:not(.disabled).danger {
+    color: $alert-color;
+    background: lighten($alert-color, 30);
+  }
+
+  &:not(.disabled):hover {
+    transform: scale(0.95);
+  }
+
+  &:not(.disabled):active {
+    transform: scale(0.9);
+  }
+}

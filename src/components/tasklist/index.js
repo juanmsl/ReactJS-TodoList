@@ -19,7 +19,7 @@ export default function TaskList(props) {
                 />;
             });
         }
-        return <p>No group selected</p>
+        return <p>No project selected</p>
     };
 
     const handleInput = (e) => {
@@ -29,6 +29,7 @@ export default function TaskList(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (!inputValue) return;
         const task = {
             text: inputValue,
             done: false
@@ -39,11 +40,26 @@ export default function TaskList(props) {
         setInputValue("");
     };
 
+    const deleteAll = (e) => {
+        e.preventDefault();
+        groups[selectedGroup].tasks = [];
+        setGroups([...groups]);
+        setInputValue("");
+    };
+
     return (
-        <form onSubmit={handleSubmit}>
-            {selectedGroup !== null ? <h2>{groups[selectedGroup].text}</h2> : null }
-            {selectedGroup !== null ? <input type="text" onChange={handleInput} value={inputValue}/> : null }
-            <section>{renderTasks()}</section>
+        <form onSubmit={handleSubmit} className="task-list">
+            <section>
+                {selectedGroup !== null ? <h2>{groups[selectedGroup].text}</h2> : null }
+                {selectedGroup !== null ? (
+                    <section className="task-list__buttons">
+                        <input type="text" onChange={handleInput} value={inputValue} className="input"/>
+                        <button onClick={handleSubmit} className={`button`}>Add</button>
+                        <button onClick={deleteAll} className={`button danger`}>Delete all</button>
+                    </section>
+                    ) : null }
+            </section>
+            <section className="task-list__items">{renderTasks()}</section>
         </form>
     );
 }

@@ -1,0 +1,46 @@
+.group-list {
+  background: white;
+  border-radius: 0 $gutter $gutter 0;
+  padding: $padding;
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  grid-gap: $gutter;
+  grid-template-rows: auto 1fr;
+
+  .group-list__buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: $gutter;
+    margin-top: $margin;
+  }
+
+  .group-list__items {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: $padding 0;
+    overflow: auto;
+    align-content: start;
+  }
+
+  .group-list__item {
+    padding: $padding;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid $gray-light-color;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover, &.selected {
+      background: $gray-light-color;
+    }
+
+    &.selected {
+      font-weight: bold;
+    }
+  }
+}
