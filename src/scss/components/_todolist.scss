@@ -1,12 +1,13 @@
 .todolist-app {
   display: grid;
   grid-template-columns: 300px 1fr;
-  min-width: 100%;
+  width: 100%;
   height: 100vh;
   background: $third-color;
   box-shadow: 0 0 15px 0 $gray-color;
 
-  @include from(laptop) {
+  @include from(pc) {
     width: 80%;
+    height: 80vh;
   }
 }
