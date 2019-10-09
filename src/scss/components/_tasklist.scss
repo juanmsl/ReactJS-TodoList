@@ -28,10 +28,11 @@
   .task-list__item {
     padding: $padding;
     background: white;
-    border-radius: $gutter;
+    border-radius: $gutter / 2;
     border: 1px dotted transparent;
     color: $gray-color;
     transition: all 0.3s ease;
+    cursor: pointer;
 
     &.done {
       text-decoration: line-through;

@@ -2,19 +2,18 @@ import React from 'react';
 import TaskItem from "./taskitem";
 
 export default function TaskList(props) {
-    const {groups, selectedGroup, setGroups} = props;
+    const {group, updateSelectedGroup} = props;
     const [inputValue, setInputValue] = React.useState("");
 
     const renderTasks = () => {
-        if (selectedGroup !== null) {
-            const tasks = groups[selectedGroup].tasks;
-            return tasks.map((task, i) => {
+        if (group) {
+            return group.tasks.map((task, i) => {
                 return <TaskItem
                     key={i}
                     {...task}
                     toggleDone={() => {
-                        groups[selectedGroup].tasks[i].done = !task.done;
-                        setGroups([...groups]);
+                        group.tasks[i].done = !task.done;
+                        updateSelectedGroup(group);
                     }}
                 />;
             });
@@ -34,30 +33,36 @@ export default function TaskList(props) {
             text: inputValue,
             done: false
         };
-        const tasks = groups[selectedGroup].tasks;
-        groups[selectedGroup].tasks = [...tasks, task];
-        setGroups([...groups]);
+        const {tasks} = group;
+        group.tasks = [...tasks, task];
+        updateSelectedGroup(group);
         setInputValue("");
     };
 
     const deleteAll = (e) => {
         e.preventDefault();
-        groups[selectedGroup].tasks = [];
-        setGroups([...groups]);
+        group.tasks = [];
+        updateSelectedGroup(group);
         setInputValue("");
     };
+
+    if(!group) {
+        return (
+            <section className="task-list">
+                <p>No project selected</p>
+            </section>
+        );
+    }
 
     return (
         <form onSubmit={handleSubmit} className="task-list">
             <section>
-                {selectedGroup !== null ? <h2>{groups[selectedGroup].text}</h2> : null }
-                {selectedGroup !== null ? (
-                    <section className="task-list__buttons">
-                        <input type="text" onChange={handleInput} value={inputValue} className="input"/>
-                        <button onClick={handleSubmit} className={`button`}>Add</button>
-                        <button onClick={deleteAll} className={`button danger`}>Delete all</button>
-                    </section>
-                    ) : null }
+                <h2>{group.text}</h2>
+                <section className="task-list__buttons">
+                    <input type="text" onChange={handleInput} value={inputValue} className="input"/>
+                    <button onClick={handleSubmit} className={`button`}>Add</button>
+                    <button onClick={deleteAll} className={`button danger`}>Delete all</button>
+                </section>
             </section>
             <section className="task-list__items">{renderTasks()}</section>
         </form>

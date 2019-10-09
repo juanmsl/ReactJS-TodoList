@@ -8,6 +8,12 @@ export default function TodoListApp() {
     const [groups, setGroups] = React.useState([]);
     const [selectedGroup, setSelectedGroup] = React.useState(null);
 
+    const updateSelectedGroup = (group) => {
+        const newGroups = [...groups];
+        newGroups[selectedGroup] = group;
+        setGroups(newGroups);
+    };
+
     return (
         <main className="todolist-app">
             <GroupList
@@ -19,9 +25,8 @@ export default function TodoListApp() {
                 setSelectedGroup={setSelectedGroup}
             />
             <TaskList
-                groups={groups}
-                selectedGroup={selectedGroup}
-                setGroups={setGroups}
+                group={groups[selectedGroup]}
+                updateSelectedGroup={updateSelectedGroup}
             />
         </main>
     );
