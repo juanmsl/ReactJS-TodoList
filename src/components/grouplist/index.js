@@ -38,6 +38,13 @@ export default function GroupList(props) {
         setInputValue("");
     };
 
+    const deleteGroupListItem = (e) => {
+        e.preventDefault();
+        groups.splice(selectedGroup, 1);
+        setGroups(groups);
+        setSelectedGroup(null);
+    };
+
     const deleteAll = (e) => {
         e.preventDefault();
         setGroups([]);
@@ -57,6 +64,7 @@ export default function GroupList(props) {
                 </section>
             </section>
             <section className="group-list__items">{renderGroups()}</section>
+            {(groups.length) ? <button type="button" className="delete-icon" onClick={deleteGroupListItem}>Delete Group </button> : null}
         </form>
     );
 }
