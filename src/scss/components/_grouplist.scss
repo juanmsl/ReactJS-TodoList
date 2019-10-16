@@ -43,14 +43,4 @@
       font-weight: bold;
     }
   }
-  .delete-icon {
-    padding: 0.6rem;
-    background-image: linear-gradient(to right, #fff 0%, #fff 100%);
-    transition-duration: 300ms;
-    cursor: pointer;
-    &:hover {
-      color: #fff;
-      background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
-    }
-  }
 }

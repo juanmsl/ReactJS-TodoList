@@ -17,11 +17,11 @@
 .button {
   padding: $padding;
   border: 1px solid;
-  color: $active-color;
+  color: $gray-color;
   transition: all 0.3s ease;
   outline: 0;
   cursor: pointer;
-  background: lighten($active-color, 50);
+  background: lighten($gray-light-color, 50);
 
   &.disabled {
     color: $gray-light-color;
@@ -29,7 +29,12 @@
     background: transparent;
   }
 
-  &:not(.disabled).danger {
+  &:not(.disabled).active:hover {
+    color: $active-color;
+    background: lighten($active-color, 50);
+  }
+
+  &:not(.disabled).danger:hover {
     color: $alert-color;
     background: lighten($alert-color, 30);
   }

@@ -7,6 +7,7 @@ export default function GroupList(props) {
 
     const [disableAddButton, isDisableAddButton] = [inputValue ? "" : "disabled", !inputValue];
     const [disableDeleteAllButton, isDisableDeleteAllButton] = [groups.length ? "" : "disabled", !groups.length];
+    const [disableDeleteButton, isDisableDeleteButton] = [groups.length && selectedGroup !== null ? "" : "disabled", !groups.length || selectedGroup === null];
 
     const renderGroups = () => {
         return groups.map((group, i) => (
@@ -59,12 +60,12 @@ export default function GroupList(props) {
                 <p className="description">{description}</p>
                 <input type="text" onChange={handleInput} value={inputValue} className="input"/>
                 <section className="group-list__buttons">
-                    <button onClick={handleSubmit} className={`button ${disableAddButton}`} disabled={isDisableAddButton}>Add</button>
+                    <button onClick={handleSubmit} className={`button active ${disableAddButton}`} disabled={isDisableAddButton}>Add</button>
                     <button onClick={deleteAll} className={`button danger ${disableDeleteAllButton}`} disabled={isDisableDeleteAllButton}>Delete all</button>
                 </section>
             </section>
             <section className="group-list__items">{renderGroups()}</section>
-            {(groups.length) ? <button type="button" className="delete-icon" onClick={deleteGroupListItem}>Delete Group </button> : null}
+            <button type="button" className={`button danger ${disableDeleteButton}`} disabled={isDisableDeleteButton} onClick={deleteGroupListItem}>Delete Group</button>
         </form>
     );
 }
